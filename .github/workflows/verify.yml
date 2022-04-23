@@ -12,7 +12,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -32,21 +32,21 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Cache build
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: .cache/webpack
           key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-
       - name: Cache Jest
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: .cache/jest
           key: ${{ runner.os }}-jest-${{ hashFiles('package-lock.json') }}-${{ github.run_number }}
